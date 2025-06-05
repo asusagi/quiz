@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>コンプリート！</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎉 全問正解おめでとう！ 🎉</h1>
+  <p>この画面をスタッフに見せてね！</p>
+
+  <div id="beforeCheck">
+    <button onclick="markUsed()">✔ 使用済みにする（スタッフ専用）</button>
+  </div>
+
+  <div id="afterCheck" style="display: none;">
+    <h2>✅ 使用済み</h2>
+    <p>ご参加ありがとうございました！</p>
+  </div>
+
+  <script>
+    window.onload = function () {
+      if (localStorage.getItem("checked") === "yes") {
+        document.getElementById("beforeCheck").style.display = "none";
+        document.getElementById("afterCheck").style.display = "block";
+      }
+    };
+
+    function markUsed() {
+      localStorage.setItem("checked", "yes");
+      document.getElementById("beforeCheck").style.display = "none";
+      document.getElementById("afterCheck").style.display = "block";
+    }
+  </script>
+</body>
+</html>

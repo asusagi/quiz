@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>お店クイズラリー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>クイズラリー</h1>
+  <p>お店の中を探検して、1問ずつ答えてみてね！</p>
+
+  <div class="question">
+    <label>Q1: コーヒーマシンで売っているコーヒーの種類はブレンドと？</label><br>
+    <input type="text" id="q1"><br>
+    <button onclick="checkOneAnswer('q1', 'カフェインレス')">▶ 回答</button>
+    <p id="result_q1"></p>
+  </div>
+
+  <div class="question">
+    <label>Q2: 給水機には専用の〇〇がある！</label><br>
+    <input type="text" id="q2"><br>
+    <button onclick="checkOneAnswer('q2', 'アプリ')">▶ 回答</button>
+    <p id="result_q2"></p>
+  </div>
+
+  <div class="question">
+    <label>Q3: このイベントの名前は？</label><br>
+    <input type="text" id="q3"><br>
+    <button onclick="checkOneAnswer('q3', 'つながる市')">▶ 回答</button>
+    <p id="result_q3"></p>
+  </div>
+
+  <!-- Q4〜Q7も同じ形式で追加できる -->
+
+  <br>
+  <p id="completionMsg"></p>
+
+  <script src="script.js"></script>
+
+  <button onclick="resetQuiz()"> 不正防止用あとで消す</button>
+
+</body>
+</html>

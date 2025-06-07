@@ -2,34 +2,54 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>コンプリート！</title>
-  <link rel="stylesheet" href="style.css">
+  <title>特典ページ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #fff8f8;
+      color: #800000;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 20px;
+      background-color: #800000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .used {
+      font-size: 1.2em;
+      color: #888;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>🎉 全問正解おめでとう！ 🎉</h1>
-  <p>この画面をスタッフに見せてね！</p>
+  <h1>🎉 特典GET！</h1>
+  <p>おめでとうございます！クイズをすべて正解しました！</p>
 
-  <div id="beforeCheck">
-    <button onclick="markUsed()">✔ 使用済みにする（スタッフ専用）</button>
+  <div id="staffArea">
+    <button class="button" onclick="markAsUsed()">✅ 使用済みにする（スタッフ専用）</button>
   </div>
 
-  <div id="afterCheck" style="display: none;">
-    <h2>✅ 使用済み</h2>
-    <p>ご参加ありがとうございました！</p>
+  <div id="usedMsg" class="used" style="display:none;">
+    この画面はすでに使用済みです。
   </div>
 
   <script>
-    window.onload = function () {
-      if (localStorage.getItem("checked") === "yes") {
-        document.getElementById("beforeCheck").style.display = "none";
-        document.getElementById("afterCheck").style.display = "block";
-      }
-    };
-
-    function markUsed() {
+    function markAsUsed() {
       localStorage.setItem("checked", "yes");
-      document.getElementById("beforeCheck").style.display = "none";
-      document.getElementById("afterCheck").style.display = "block";
+      document.getElementById("staffArea").style.display = "none";
+      document.getElementById("usedMsg").style.display = "block";
+    }
+
+    // 初期状態チェック
+    if (localStorage.getItem("checked") === "yes") {
+      document.getElementById("staffArea").style.display = "none";
+      document.getElementById("usedMsg").style.display = "block";
     }
   </script>
 </body>

@@ -9,7 +9,7 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fff0f0; /* 元のえんじベースに近い背景色 */
+  background-color: #fff0f0; 
   color: #333;
 }
 
@@ -17,7 +17,7 @@ h1 {
   font-size: 1.6em;
   margin-bottom: 0.5em;
   text-align: center;
-  color: #800000; /* えんじ色 */
+  color: #800000; 
 }
 
 p {

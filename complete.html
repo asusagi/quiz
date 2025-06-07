@@ -23,21 +23,31 @@
     .hidden {
       display: none;
     }
+    .reset {
+      margin-top: 40px;
+      font-size: 0.8em;
+      color: #888;
+    }
   </style>
 </head>
 <body>
   <h1>🎉 全問正解おめでとう！</h1>
 
-  <!-- STEP2: スタッフに見せる -->
+  <!-- スタッフ操作 -->
   <div id="staffStep">
     <p>この画面をスタッフに見せてください！</p>
     <button class="button" onclick="markAsUsed()">✅ 使用済みにする（スタッフ専用）</button>
   </div>
 
-  <!-- STEP3: 完了画面 -->
+  <!-- 使用済み表示 -->
   <div id="doneStep" class="hidden">
     <h2>✅ 使用済み</h2>
     <p>ご参加ありがとうございました！</p>
+  </div>
+
+  <!-- リセット（開発用） -->
+  <div class="reset">
+    <button onclick="resetStatus()">🔄 リセット（開発用）</button>
   </div>
 
   <script>
@@ -47,6 +57,12 @@
       document.getElementById("doneStep").style.display = "block";
     }
 
+    function resetStatus() {
+      localStorage.removeItem("checked");
+      location.reload();
+    }
+
+    // 初回表示時の状態確認
     if (localStorage.getItem("checked") === "yes") {
       document.getElementById("staffStep").style.display = "none";
       document.getElementById("doneStep").style.display = "block";

@@ -20,36 +20,36 @@
       border-radius: 6px;
       cursor: pointer;
     }
-    .used {
-      font-size: 1.2em;
-      color: #888;
-      margin-top: 20px;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 特典GET！</h1>
-  <p>おめでとうございます！クイズをすべて正解しました！</p>
+  <h1>🎉 全問正解おめでとう！</h1>
 
-  <div id="staffArea">
+  <!-- STEP2: スタッフに見せる -->
+  <div id="staffStep">
+    <p>この画面をスタッフに見せてください！</p>
     <button class="button" onclick="markAsUsed()">✅ 使用済みにする（スタッフ専用）</button>
   </div>
 
-  <div id="usedMsg" class="used" style="display:none;">
-    この画面はすでに使用済みです。
+  <!-- STEP3: 完了画面 -->
+  <div id="doneStep" class="hidden">
+    <h2>✅ 使用済み</h2>
+    <p>ご参加ありがとうございました！</p>
   </div>
 
   <script>
     function markAsUsed() {
       localStorage.setItem("checked", "yes");
-      document.getElementById("staffArea").style.display = "none";
-      document.getElementById("usedMsg").style.display = "block";
+      document.getElementById("staffStep").style.display = "none";
+      document.getElementById("doneStep").style.display = "block";
     }
 
-    // 初期状態チェック
     if (localStorage.getItem("checked") === "yes") {
-      document.getElementById("staffArea").style.display = "none";
-      document.getElementById("usedMsg").style.display = "block";
+      document.getElementById("staffStep").style.display = "none";
+      document.getElementById("doneStep").style.display = "block";
     }
   </script>
 </body>
